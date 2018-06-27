@@ -1,20 +1,65 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+<div class="row">
+  <div class="col-auto"><button class="btn btn-primary" (click)="onFetchNestedCars()" >Get Nested Cars</button></div>
+  <div class="col-auto"> <button class="btn btn-primary" (click)="onFetchDrugPrice()" >Get Drug Price</button></div>
+  <div class="col-auto"> <button class="btn btn-primary" (click)="onFetchAccounts()" >Get Account Data</button></div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-4" *ngFor="let driver of nestedCarJSON; let i =index">
+      <app-driver  [driver]="driver" [index] = "i">
+      </app-driver>
+      </div></div></div>
+  <!--<div *ngFor="let account of accountJSON" >
+        <div *ngFor="let details of account.accounts" >
+          {{details.bank}}
+        </div>
+  </div>
+
+    <div class="row" >
+      <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12" style="border:1px solid" *ngFor="let driver of nestedCarJSON.driver">
+        <h2>Name: {{driver.name}}</h2>
+        <h3>Age: {{driver.age}}</h3>
+        <div *ngFor="let car of driver.car">
+          <h2>{{car.make}} &nbsp; {{car.model}}</h2>
+          <h3>Color : {{car.colour}}</h3>
+          <div *ngFor="let mileage of car.mileage">
+            <h4> Miles Clocked: {{mileage.total}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
+ <!-- <table border="2px"  >
+    <tr  *ngFor="let driver of nestedCarJSON.driver">
+      <th bgcolor="#6495ed">
+        <h2>Name: {{driver.name}}</h2>
+      <h3>Age: {{driver.age}}</h3>
+    </th>
+      <td bgcolor="#adff2f" *ngFor="let car of driver.car">
+        <h2>{{car.make}} &nbsp; {{car.model}}</h2>
+        <h3>Color : {{car.colour}}</h3>
+          <div *ngFor="let mileage of car.mileage">
+            <h4> Miles Clocked: {{mileage.total}}</h4>
+          </div>
+      </td>
+    </tr>
+  </table>
+-->
+<!--
+<table border="2px">
+  <tr>
+    <td style="padding: 20px" *ngFor="let drugCost of drugJSON">
+      <h3>{{drugCost.drugName}}</h3>
+      <h4>{{drugCost.drugStrength}}</h4>
+      <div>
+          {{drugCost.mailPrice.costAnnual}}
+      </div>
+    </td>
+  </tr>
+</table>
+
+</div>
+-->
 
