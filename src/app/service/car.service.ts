@@ -24,7 +24,7 @@ export class CarService {
   getNestedCars(): Observable<any> {
     return this._httpClient.get('https://todo-node-kd-api.herokuapp.com/driverCars').pipe(
       map( data => {
-        return data.driver;
+        return data;
       })
     );
   }

@@ -10,6 +10,7 @@ export class DriverComponent implements OnInit {
 
   @Input() driver;
   @Input() index: number;
+  @Input() filterCar: string;
 
   constructor() { }
 

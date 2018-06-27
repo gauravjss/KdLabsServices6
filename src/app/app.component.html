@@ -4,11 +4,12 @@
   <div class="col-auto"><button class="btn btn-primary" (click)="onFetchNestedCars()" >Get Nested Cars</button></div>
   <div class="col-auto"> <button class="btn btn-primary" (click)="onFetchDrugPrice()" >Get Drug Price</button></div>
   <div class="col-auto"> <button class="btn btn-primary" (click)="onFetchAccounts()" >Get Account Data</button></div>
+  <input type="text" [(ngModel)]="filteredCar">
 </div>
   <div class="container">
     <div class="row">
-      <div class="col-4" *ngFor="let driver of nestedCarJSON; let i =index">
-      <app-driver  [driver]="driver" [index] = "i">
+      <div class="col-4" *ngFor="let driver of nestedCarJSON.driver; let i =index">
+      <app-driver  [driver]="driver" [index] = "i" [filterCar] = "filteredCar">
       </app-driver>
       </div></div></div>
   <!--<div *ngFor="let account of accountJSON" >

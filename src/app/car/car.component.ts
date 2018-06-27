@@ -5,7 +5,7 @@ import {CarModel} from './car.model';
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CarComponent implements OnInit {
 

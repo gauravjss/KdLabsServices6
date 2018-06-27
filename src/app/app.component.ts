@@ -10,6 +10,7 @@ export class AppComponent {
   nestedCarJSON = '';
   accountJSON = '';
   drugJSON = '';
+  filteredCar = '';
 
   constructor(private carService: CarService) { }
 
