@@ -8,9 +8,9 @@ import {DriverModel} from './driver.model';
 })
 export class DriverComponent implements OnInit {
 
-  @Input() driver;
+  /*@Input() driver;
   @Input() index: number;
-  @Input() filterCar: string;
+  @Input() filterCar: string;*/
 
   constructor() { }
 

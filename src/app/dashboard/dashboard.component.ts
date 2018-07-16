@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Car} from '../Models/car';
 import {CarService} from '../service/car.service';
 
@@ -10,13 +10,22 @@ import {CarService} from '../service/car.service';
 export class DashboardComponent implements OnInit {
 
   carData: Car[];
-  constructor(private carService: CarService) { }
+  filterCar = '';
+  filterField = 'Name';
+
+  constructor() { }
 
   ngOnInit() {
-    this.carService.getCarData().subscribe((cars) => {
-      this.carData = cars.cars;
-      console.log(this.carData);
-    });
+
+  }
+
+  onFilterChanged(event) {
+    this.filterCar = event;
+  }
+
+  onFilterFieldChanged(event) {
+    this.filterField = event;
+    console.log(this.filterField);
   }
 
 }

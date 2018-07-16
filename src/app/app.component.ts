@@ -17,36 +17,37 @@ export class AppComponent {
   constructor(private carService: CarService) { }
 
 
-  onFetchAccounts() {
+  /*onFetchAccounts() {
      this.carService.getCarData().subscribe(
        (data) => {
          this.accountJSON = data;
          console.log(this.accountJSON);
        }
      );
-
   }
 
-  onFetchNestedCars() {
-     this.carService.getNestedCars().subscribe(
-     (data) => {
-         this.nestedCarJSON = data.body;
-         console.log(this.nestedCarJSON);
-       }, () => {
 
-       }, () => {
 
-       }
+   onFetchNestedCars() {
+      this.carService.getNestedCars().subscribe(
+      (data) => {
+          this.nestedCarJSON = data.body;
+          console.log(this.nestedCarJSON);
+        }, () => {
 
-     /*  (response: HttpResponse<any>) => {
-         console.log('HTTP response', response);
-         console.log('HTTP response : Headers', response.headers);
-         console.log('HTTP response : status', response.status);
-         console.log('HTTP response : url', response.url);
-         // Note that we don't need parse the response, we can access
-         // it directly through 'body' property
-         console.log('HTTP response : body', response.body);
-       }*/
+        }, () => {
+
+        }
+
+     (response: HttpResponse<any>) => {
+          console.log('HTTP response', response);
+          console.log('HTTP response : Headers', response.headers);
+          console.log('HTTP response : status', response.status);
+          console.log('HTTP response : url', response.url);
+          // Note that we don't need parse the response, we can access
+          // it directly through 'body' property
+          console.log('HTTP response : body', response.body);
+        }
 
      );
   }
@@ -58,5 +59,5 @@ export class AppComponent {
         console.log(this.drugJSON);
       }
     );
-  }
+  }*/
 }

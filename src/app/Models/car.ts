@@ -9,5 +9,7 @@ export interface Car {
   Acceleration: number;
   Year: string;
   Origin: string;
+  __v: number;
+  _id: string;
 
 }

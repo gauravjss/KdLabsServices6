@@ -1,28 +1,3 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-striped table-responsive-sm table-hover">
-          <tr>
-              <th scope="col">#</th>
-              <th scope="col">Make</th>
-              <th scope="col">Cylinder</th>
-              <th scope="col">Horsepower</th>
-              <th scope="col">Displacement</th>
-              <th scope="col">Weight</th>
-              <th scope="col">Acceleration</th>
-              <th scope="col">Origin</th>
-          </tr>
-        <tr *ngFor="let car of carData ; let i =index">
-            <th scope="row">{{i+1}}</th>
-            <td>{{car.Name|capitalize}}</td>
-            <td>{{car.Cylinders}}</td>
-            <td>{{car.Horsepower}}</td>
-            <td>{{car.Displacement}}</td>
-            <td>{{car.Weight_in_lbs}}</td>
-            <td>{{car.Acceleration}}</td>
-            <td>{{car.Origin}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
+<app-filter (filterChanged)="onFilterChanged($event)" (filterFieldChanged)="onFilterFieldChanged($event)"></app-filter>
+
+<app-car [filterCar]=filterCar [filterField]=filterField></app-car>

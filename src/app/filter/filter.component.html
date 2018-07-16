@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+    <input type="text"  [(ngModel)]="filterData"  (ngModelChange)="modelChanged()">
+      <select name="cars" [(ngModel)]="filterField"  (ngModelChange)="fieldModelChanged()">
+        <option value="Name">Make</option>
+        <option value="Cylinders">Cylinders</option>
+        <option value="Horsepower">Horsepower</option>
+        <option value="Displacement">Displacement</option>
+        <option value="Weight_in_lbs">Weight</option>
+        <option value="Acceleration">Acceleration</option>
+        <option value="Origin">Origin</option>
+      </select>
+    </div>
+  </div>
+</div>

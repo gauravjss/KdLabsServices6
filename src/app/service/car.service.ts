@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/internal/Observable';
 import {map, retry, catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
+import {Car} from '../Models/car';
 
 @Injectable({
   providedIn: 'root'
@@ -11,24 +12,16 @@ export class CarService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getCarData(): Observable<any> {
+  getCarData(): Observable<Car[]> {
     return this._httpClient.get('https://kd-cars-api.herokuapp.com/kdCars').pipe(
       map( data => {
-        return data;
+          return Object.values(data)[0];
       }),
       retry(2),
       catchError(this.handleError)
     );
   }
 
-  getNestedCars(): Observable<any> {
-    return this._httpClient.get('https://todo-node-kd-api.herokuapp.com/driverCars'); /*.pipe(
-      map( data => {
-        console.log(data);
-        return data._data;
-      })
-    );*/
-  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -46,11 +39,21 @@ export class CarService {
       'Something bad happened; please try again later.');
   }
 
+  /*
+  getNestedCars(): Observable<any> {
+    return this._httpClient.get('https://todo-node-kd-api.herokuapp.com/driverCars').pipe(
+      map( data => {
+        console.log(data);
+        return data._data;
+      })
+    );
+  }
+
   getDrugPrice(): Observable<any> {
     return this._httpClient.get('https://todo-node-kd-api.herokuapp.com/drugPrice').pipe(
       map( data => {
         return data;
       })
     );
-  }
+  }*/
 }

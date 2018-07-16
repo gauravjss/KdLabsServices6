@@ -10,6 +10,7 @@ import { CapitalizePipe } from './capitalize.pipe';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { RouterModule} from '@angular/router';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RouterModule} from '@angular/router';
     CarComponent,
     FilterPipe,
     CapitalizePipe,
-    DashboardComponent
+    DashboardComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
