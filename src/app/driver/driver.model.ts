@@ -1,4 +1,4 @@
-import {CarModel} from '../car/car.model';
+import {Car} from '../Models/car';
 
 
 export class  DriverModel {
@@ -6,5 +6,5 @@ export class  DriverModel {
   constructor(public id: number,
               public name: string,
               public age: number,
-              public car: CarModel){}
+              public car: Car) { }
 }

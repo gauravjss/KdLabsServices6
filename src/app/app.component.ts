@@ -1,5 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import {CarService} from './service/car.service';
+import {HttpResponse} from '@angular/common/http';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -27,10 +29,25 @@ export class AppComponent {
 
   onFetchNestedCars() {
      this.carService.getNestedCars().subscribe(
-       (data) => {
-         this.nestedCarJSON = data;
+     (data) => {
+         this.nestedCarJSON = data.body;
          console.log(this.nestedCarJSON);
+       }, () => {
+
+       }, () => {
+
        }
+
+     /*  (response: HttpResponse<any>) => {
+         console.log('HTTP response', response);
+         console.log('HTTP response : Headers', response.headers);
+         console.log('HTTP response : status', response.status);
+         console.log('HTTP response : url', response.url);
+         // Note that we don't need parse the response, we can access
+         // it directly through 'body' property
+         console.log('HTTP response : body', response.body);
+       }*/
+
      );
   }
 
