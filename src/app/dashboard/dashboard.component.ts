@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Car} from '../Models/car';
-import {CarService} from '../service/car.service';
+import {Component, OnInit} from '@angular/core';
+import {Car} from '../models/car';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +24,5 @@ export class DashboardComponent implements OnInit {
 
   onFilterFieldChanged(event) {
     this.filterField = event;
-    console.log(this.filterField);
   }
-
 }

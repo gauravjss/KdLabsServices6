@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/internal/Observable';
 import {map, retry, catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import {Car} from '../Models/car';
+import {Car} from '../models/car';
 
 @Injectable({
   providedIn: 'root'
@@ -38,22 +38,4 @@ export class CarService {
     return throwError(
       'Something bad happened; please try again later.');
   }
-
-  /*
-  getNestedCars(): Observable<any> {
-    return this._httpClient.get('https://todo-node-kd-api.herokuapp.com/driverCars').pipe(
-      map( data => {
-        console.log(data);
-        return data._data;
-      })
-    );
-  }
-
-  getDrugPrice(): Observable<any> {
-    return this._httpClient.get('https://todo-node-kd-api.herokuapp.com/drugPrice').pipe(
-      map( data => {
-        return data;
-      })
-    );
-  }*/
 }

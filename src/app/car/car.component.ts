@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
-import {Car} from '../Models/car';
+import {Car} from '../models/car';
 import {CarService} from '../service/car.service';
 
 @Component({
@@ -18,17 +18,12 @@ export class CarComponent implements OnInit {
   ngOnInit() {
     this.carService.getCarData().subscribe((cars) => {
       this.carData = cars;
-      console.log(this.carData);
-      console.log(this.filterCar);
     });
   }
 
   onFetchCarData() {
     this.carService.getCarData().subscribe((cars) => {
       this.carData = cars;
-      console.log(this.carData);
-      console.log(this.filterCar);
-      console.log(this.filterField);
     });
   }
 }
