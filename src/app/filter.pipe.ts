@@ -7,20 +7,17 @@ import * as _ from 'lodash';
 export class FilterPipe implements PipeTransform {
 
   transform(inputArray: any, filterString: string, propName: string): any {
-    console.log(propName);
 
     if (inputArray.length === 0 || filterString === '' ||  filterString === 'undefined') {
       return inputArray;
     }
     return _.filter(inputArray, (car) => {
-          console.log(typeof car[propName]);
-          if (car[propName] === null) {
-            return true;
-          } if (typeof(car[propName]) === 'number') {
-            return (car[propName]).toString().toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
-          } else {
-            return car[propName].toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
-          }
+      if (car[propName] !== undefined && car[propName] !== null) {
+          // Converting toString Explicitly so that numbers are converted to string for lower case.
+          return (car[propName]).toString().toLowerCase().indexOf(filterString.toLowerCase()) !== -1;
+      }
+      // Return matches for all blank, null and undefined values.
+      return true;
     });
   }
 }

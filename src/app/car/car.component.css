@@ -59,7 +59,3 @@ and (max-device-width: 1024px)  {
   td:nth-of-type(7):before { content: "Acceleration"; }
   td:nth-of-type(8):before { content: "Origin"; }
 }
-
-.capital-first{
-  text-transform: capitalize;
-}
