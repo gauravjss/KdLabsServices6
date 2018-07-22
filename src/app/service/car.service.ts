@@ -1,19 +1,25 @@
-import { Injectable } from '@angular/core';
+import {enableProdMode, Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/internal/Observable';
 import {map, retry, catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Car} from '../models/car';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarService {
+export class CarService implements OnInit {
+
+  baseURL = environment.baseUrl;
 
   constructor(private _httpClient: HttpClient) { }
 
+  ngOnInit() {
+  }
+
   getCarData(): Observable<Car[]> {
-    return this._httpClient.get('https://kd-cars-api.herokuapp.com/kdCars').pipe(
+    return this._httpClient.get(`${this.baseURL}/kdCars`).pipe(
       map( data => {
           return Object.values(data)[0];
       }),
@@ -24,6 +30,7 @@ export class CarService {
 
 
   private handleError(error: HttpErrorResponse) {
+    console.log(error);
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
