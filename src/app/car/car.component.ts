@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 import {Car} from '../models/car';
 import {CarService} from '../service/car.service';
+import {Observable} from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-car',
@@ -10,15 +11,17 @@ import {CarService} from '../service/car.service';
 })
 export class CarComponent implements OnInit {
   carData: Car[] = [];
+  carDataObservable: Observable<Car[]> = new Observable<Car[]>();
   @Input() filterCar;
   @Input() filterField;
 
   constructor(private carService: CarService) { }
 
   ngOnInit() {
-    this.carService.getCarData().subscribe((cars) => {
+  /*  this.carService.getCarData().subscribe((cars) => {
       this.carData = cars;
-    });
+    }); */
+    this.carDataObservable = this.carService.getCarData();
   }
 
   onFetchCarData() {

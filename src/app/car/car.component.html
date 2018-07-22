@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody role="rowgroup">
-        <tr align="center" *ngFor="let car of carData | filter: filterCar : filterField ; let i =index"  role="row">
+        <tr align="center" *ngFor="let car of carDataObservable | async | filter: filterCar : filterField ; let i =index"  role="row">
           <td role="cell" class="font-weight-bold">{{i+1}}</td>
           <td role="cell" >{{car.Name | capitalize: true}}</td>
           <td role="cell">{{car.Cylinders}}</td>
