@@ -1,6 +1,6 @@
 //Install express server
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist'));
