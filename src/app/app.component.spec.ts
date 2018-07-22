@@ -9,11 +9,12 @@ import {FilterPipe} from './pipes/filter.pipe';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule} from '@angular/common/http';
+import {LoaderComponent} from './service/loader';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent, DashboardComponent, FilterComponent, CarComponent, FilterPipe, CapitalizePipe
+        AppComponent, DashboardComponent, FilterComponent, CarComponent, FilterPipe, CapitalizePipe, LoaderComponent
       ], imports: [AppRoutingModule, FormsModule, HttpClientModule],
       providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     }).compileComponents();
