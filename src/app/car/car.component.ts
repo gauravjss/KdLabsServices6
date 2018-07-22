@@ -11,7 +11,7 @@ import {Observable} from 'rxjs/internal/Observable';
 })
 export class CarComponent implements OnInit {
   carData: Car[] = [];
-  carDataObservable: Observable<Car[]> = new Observable<Car[]>();
+  carData$: Observable<Car[]> = new Observable<Car[]>();
   @Input() filterCar;
   @Input() filterField;
 
@@ -21,12 +21,12 @@ export class CarComponent implements OnInit {
   /*  this.carService.getCarData().subscribe((cars) => {
       this.carData = cars;
     }); */
-    this.carDataObservable = this.carService.getCarData();
+    this.carData$ = this.carService.getCarData();
   }
 
-  onFetchCarData() {
+ /* onFetchCarData() {
     this.carService.getCarData().subscribe((cars) => {
       this.carData = cars;
     });
-  }
+  }*/
 }
