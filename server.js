@@ -1,6 +1,10 @@
 //Install express server
 var express = require('express');
 var app = express();
+var cors = require('cors');
+
+//Access Control Allow Origin
+app.use(cors());
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist'));
